@@ -1,2 +1,2 @@
 
-Jsc_Topics[0]='Loops';
+let pencil = new Product('Pencil',10,2,'P1');
