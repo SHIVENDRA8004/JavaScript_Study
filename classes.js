@@ -56,22 +56,46 @@ const prompt = require('prompt-sync')();
 
 //  Methods in Classes
 
-const Product1= class {
-    constructor(item_name,price,discount,product_code){
-        this.item_name=item_name;
-        this.price=price;
-        this.discount=discount;
-        this.product_code=product_code;
+// const Product1= class {
+//     constructor(item_name,price,discount,product_code){
+//         this.item_name=item_name;
+//         this.price=price;
+//         this.discount=discount;
+//         this.product_code=product_code;
+//     }
+//     get getDiscountValue(){
+//         return this.discount;
+//     }
+//     set setDiscountValue(value){
+//         this.discount=value;
+//     }
+//     discountValue(){
+//         return this.discount*this.price/100;
+//     };
+// }
+// let chair=new Product1('Chair',499,15,'C10');
+// console.log(chair.discountValue());
+
+
+//This is About Extension Classes
+class Product{
+    constructor(itemName){
+        this.itemName=itemName;
     }
-    get getDiscountValue(){
-        return this.discount;
+    getItemName(){
+        return this.itemName + " is a Product";
     }
-    set setDiscountValue(value){
-        this.discount=value;
-    }
-    discountValue(){
-        return this.discount*this.price/100;
-    };
 }
-let chair=new Product1('Chair',499,15,'C10');
-console.log(chair.discountValue());
+
+class Furniture extends Product{
+    constructor(itemName){
+        super(itemName);
+    }
+    getItemName(){
+        return this.itemName + " is a Furniture";
+    }
+}
+let pencil = new Product('Pencil');
+let chair = new Furniture('Chair');
+console.log(pencil.getItemName());
+console.log(chair.getItemName());
